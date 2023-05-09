@@ -47,7 +47,7 @@ public class Deck {
             for (int suit = 0; suit < 4; suit++) {
 
                 //For each numbers
-                for (int num = 0; num < 13; num++) {
+                for (int num = 1; num < 13; num++) {
                     this.cardsInDeck.add(new Cards(Suits.values()[suit], num));
                 }
             }
@@ -66,6 +66,10 @@ public class Deck {
 
     // dealing a card from deck
     public Cards dealingNextCard() {
+        if (cardsInDeck.isEmpty()) {
+            throw new IllegalStateException("No cards in the deck");
+        }
+
         Cards topCard = this.cardsInDeck.get(0);
 
         // removing the card
@@ -75,4 +79,7 @@ public class Deck {
         return topCard;
     }
 
+    public int getNumbOfCardsInDeck() {
+        return numbOfCardsInDeck;
+    }
 }
