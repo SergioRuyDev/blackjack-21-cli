@@ -1,4 +1,4 @@
-package src.enums.model;
+package src.model;
 
 /**
  *

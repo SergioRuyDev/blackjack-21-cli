@@ -1,7 +1,9 @@
-package src.enums.model;
+package src.model;
 
 /**
  * Class for represent the players (dealer also)
+ *
+ * @author Sergio Ruy
  */
 
 import java.util.ArrayList;
