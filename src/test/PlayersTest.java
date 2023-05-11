@@ -81,7 +81,7 @@ public class PlayersTest {
         player.addCardToPlayersHand(card3);
 
         int expected = 20;
-        int actual = player.getPlayerHandTotal();
+        int actual = player.getPlayersHandTotal();
 
         assertEquals(expected, actual);
     }
@@ -95,7 +95,7 @@ public class PlayersTest {
         player.addCardToPlayersHand(card3);
 
         int expectedTotal = 19;
-        int actualTotal = player.getPlayerHandTotal();
+        int actualTotal = player.getPlayersHandTotal();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
@@ -111,7 +111,7 @@ public class PlayersTest {
         player.addCardToPlayersHand(card3);
 
         int expectedTotal = 12;
-        int actualTotal = player.getPlayerHandTotal();
+        int actualTotal = player.getPlayersHandTotal();
         assertEquals(expectedTotal, actualTotal);
     }
 

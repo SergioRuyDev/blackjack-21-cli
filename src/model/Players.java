@@ -43,13 +43,13 @@ public class Players {
         this.playerHand.add(card);
         this.numCardsInHand++;
 
-        return (this.getPlayerHandTotal() <= 21);
+        return (this.getPlayersHandTotal() <= 21);
     }
 
     /**
      * Method for limit the Aces
      */
-    public int getPlayerHandTotal() {
+    public int getPlayersHandTotal() {
         int handTotal = 0;
         int cardNum;
         int numAces = 0;

@@ -1,3 +1,5 @@
+import src.service.GameLogicImpl;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +15,8 @@ public class Main {
 
         System.out.println("Enter Your Name:\n");
         String playerName = scanner.nextLine();
+
+        new GameLogicImpl(playerName);
 
         scanner.close();
     }
