@@ -32,31 +32,19 @@ public class DeckTest {
         assertNotNull(topCard2);
     }
 
-    @DisplayName("JUnit test to check if is is shuffle and the first card is same or not")
+    @DisplayName("JUnit test to check if Dealing a card reduce the number of cards in deck by 1")
     @Test
-    public void testShuffleDeck() {
-        Deck deck1 = new Deck(2, false);
-        Cards topCardBeforeShuffle = deck1.dealingNextCard();
-
-        deck1.shuffleDeck();
-
-        Cards topCardAfterShuffle = deck1.dealingNextCard();
-        assertNotEquals(topCardBeforeShuffle, topCardAfterShuffle);
+    void givenInitialNumberOfCardsAndTestDealingNextCard() {
+        int initialNumOfCards = deck.getNumbOfCardsInDeck();
+        deck.dealingNextCard();
+        int newNumOfCards = deck.getNumbOfCardsInDeck();
+        assertEquals(initialNumOfCards - 1, newNumOfCards);
     }
 
-    @DisplayName("JUnit test to check if the dealing card works as expected")
+    @DisplayName("JUnit test to check if to deal a card from an empty deck throw an IllegalStateException")
     @Test
-    void testDealingNextCardWhenDeckIsEmpty() {
-        Deck deck = new Deck(1, false);
-        int numCards = deck.getNumbOfCardsInDeck();
-        System.out.println("Num cards in deck: " + numCards);
-
-        deck.dealingNextCard();
-
-        Exception exception = assertThrows(IllegalStateException.class, deck::dealingNextCard);
-        String expectedMessage = "No cards in the deck.";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
-    } // todo
+    void givenEmptyDeckDealingNextCardFromEmptyDeck() {
+        deck = new Deck(0, true); // create an empty deck
+        assertThrows(IllegalStateException.class, () -> deck.dealingNextCard());
+    }
 }

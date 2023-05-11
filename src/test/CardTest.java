@@ -19,8 +19,8 @@ public class CardTest {
         assertEquals(6, card.getCardNumb());
     }
 
-    @Test
     @DisplayName("JUnit test with constructor and invalid values")
+    @Test
     void givenInvalidValuesToConstructorAndThrowIllegalException() {
 
         assertThrows(IllegalArgumentException.class, () -> new Cards(Suits.SPADES, 15));

@@ -16,12 +16,17 @@ public class Players {
 
     public Players(String name) {
         this.playerName = name;
+        this.playerHand = new ArrayList<>();
         this.emptyHand();
     }
 
     public void emptyHand() {
         this.playerHand.clear();
         this.numCardsInHand = 0;
+    }
+
+    public int getNumCardsInHand() {
+        return numCardsInHand;
     }
 
     /**

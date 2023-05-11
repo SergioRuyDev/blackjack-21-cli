@@ -26,13 +26,19 @@ public class Cards {
 
         this.cardSuit = suitType;
 
+//        if (suitNumb >= 1 && suitNumb <= 13) {
+//            this.cardNumb = suitNumb;
+//        } else {
+//
+//            System.err.println(suitNumb + " is not a valid card number\n");
+//            System.exit(1);
+//        }
         if (suitNumb >= 1 && suitNumb <= 13) {
             this.cardNumb = suitNumb;
         } else {
-
-            System.err.println(suitNumb + " is not a valid card number\n");
-            System.exit(1);
+            throw new IllegalArgumentException(suitNumb + " is not a valid card number");
         }
+
     }
 
     public Suits getCardSuit() {
