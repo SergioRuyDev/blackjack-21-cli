@@ -1,17 +1,13 @@
 package src.test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import src.model.Deck;
 import src.model.Players;
-import src.service.GameLogicImpl;
+import src.service.impl.GameLogicImpl;
 
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
 
 public class GameLogicImplTest {
 
