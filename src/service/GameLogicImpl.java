@@ -7,7 +7,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Class for add all the logic of the game
+ * Class provides the main logic for the CLI blackjack game
+ * It implements the GameLogic interface and initiates a game
  *
  * @author Sergio Ruy
  */
@@ -26,6 +27,10 @@ public class GameLogicImpl implements GameLogic {
     private boolean doubleDownAllowed;
 
 
+    /**
+     * Constructor a new instance of the game.
+     * @param pName the name of the player.
+     */
     public GameLogicImpl(String pName) {
 
         this.balance = 100;
@@ -68,6 +73,10 @@ public class GameLogicImpl implements GameLogic {
         scanner.close();
     }
 
+    /**
+     * Method for deal the cards and manages the game.
+     * This includes prompting the user for their bet, dealing the initial cards, and managing the turns of the game.
+     */
     @Override
     public void dealTheGame() {
         boolean blackjack = false;
@@ -81,14 +90,14 @@ public class GameLogicImpl implements GameLogic {
 
             try {
 
-                System.out.println("\n"+msg);
+                System.out.println("\n" + msg);
                 this.bet = scanner.nextFloat();
             } catch(InputMismatchException e){
 
                 scanner.nextLine();
             } finally {
 
-                msg = "Enter your bet in Integers (natural numbers) please:";
+                msg = "Enter your bet in Integers (natural numbers) please: ";
             }
         }
 
@@ -129,8 +138,7 @@ public class GameLogicImpl implements GameLogic {
 
                     this.yourPlay();
 
-                }
-                else if(!this.dealerDone) {
+                } else if(!this.dealerDone) {
 
                     this.dealersPlay();
                 }
@@ -149,6 +157,10 @@ public class GameLogicImpl implements GameLogic {
         }
     }
 
+    /**
+     * Check if player has blackjack and return boolean
+     * @return true if the player has blackjack and the dealer does not, false.
+     */
     @Override
     public boolean checkIfBlackJack() {
         boolean blackJack = false;
@@ -171,13 +183,13 @@ public class GameLogicImpl implements GameLogic {
                 System.out.printf("Dealer's Score:%d\n\n", dealer.getPlayersHandTotal());
                 System.out.printf("Your Bet was :$%.0f\t", this.bet);
                 System.out.printf("Your Balance was:$%.1f\n", this.balance);
-                System.out.printf("You win:$%.1f\t", (3*this.bet)/2);
+                System.out.printf("You win[3:2]:$%.1f\t", (3 * this.bet) / 2);
 
-                this.balance = this.balance + (3*this.bet)/2 + this.bet;
+                this.balance = this.balance + (3 * this.bet) / 2 + this.bet;
                 System.out.printf("Your Current Balance:$%0.1f\n", this.balance);
 
                 blackJack = true;
-            } else{
+            } else {
 
                 System.out.println("\tIt could have been a BlackJack for you...\n");
                 dealer.printCardsInHand(true);
@@ -185,8 +197,7 @@ public class GameLogicImpl implements GameLogic {
                 System.out.printf("Dealer's Score:%d\n\n", dealer.getPlayersHandTotal());
                 blackJack = false;
             }
-        }
-        else if(dealer.getPlayersHandTotal() == 21) {
+        } else if(dealer.getPlayersHandTotal() == 21) {
 
             dealer.printCardsInHand(true);
             System.out.printf("Dealer's Score:%d\n\n", dealer.getPlayersHandTotal());
@@ -204,13 +215,13 @@ public class GameLogicImpl implements GameLogic {
         return blackJack;
     }
 
+    /**
+     * Method for handle the players turn and actions
+     * Flags - Hit, Stand, Double if they have enough balance
+     */
     @Override
     public void yourPlay() {
         String answer;
-        /*
-         * flags- Hit, Stand, Double
-         * ---------------------------------
-         */
 
         if(this.balance >= this.bet && this.doubleDownAllowed) {
 
@@ -243,6 +254,10 @@ public class GameLogicImpl implements GameLogic {
         }
     }
 
+    /**
+     * Method for add card to the player hand
+     * If the player's hand total exceeds 21 after hitting, the player busts and the turn ends.
+     */
     @Override
     public void hit() {
         System.out.println("\tYou Choose to Hit.\n");
@@ -252,7 +267,7 @@ public class GameLogicImpl implements GameLogic {
         System.out.printf("Bet:$%.0f\t", this.bet);
         System.out.printf("Balance:$%.1f\n\n", this.balance);
 
-        if(you.getPlayersHandTotal()>21) {
+        if(you.getPlayersHandTotal() > 21) {
 
             System.out.println("\t\t\t\t**************");
             System.out.println("\t\t\t\t*            *");
@@ -266,19 +281,27 @@ public class GameLogicImpl implements GameLogic {
         }
     }
 
+    /**
+     * Method for ended the player turn
+     * After the player stands, it's the dealer's turn.
+     */
     @Override
     public void stay() {
         System.out.println("\tYou Choose to Stay, Dealer's turn \n");
         youDone = true;
     }
 
+    /**
+     * Method for double bet and add card to their hand
+     * If the player's hand total exceeds 21 after doubling down, the player busts and the turn ends.
+     */
     @Override
     public void doubleDown() {
         System.out.println("\tYou Choose to Double Down.\n");
 
         youDone = you.addCardToPlayersHand(newDeck.dealingNextCard());
         this.balance = this.balance - this.bet;
-        this.bet = 2*this.bet;
+        this.bet = 2 * this.bet;
         youDone = true;
         you.printCardsInHand(true);
 
@@ -286,7 +309,7 @@ public class GameLogicImpl implements GameLogic {
         System.out.printf("Bet:$%.0f\t", this.bet);
         System.out.printf("Balance:$%.1f\n\n", this.balance);
 
-        if(you.getPlayersHandTotal()>21){
+        if(you.getPlayersHandTotal() > 21){
 
             System.out.println("\t\t\t\t**************");
             System.out.println("\t\t\t\t*            *");
@@ -302,6 +325,12 @@ public class GameLogicImpl implements GameLogic {
         System.out.println("Now , Dealer's turn \n");
     }
 
+    /**
+     * Method for control dealer actions
+     * The dealer will hit if total is less than 17, otherwise they will stand.
+     * If the dealer's hand total exceeds 21, the dealer busts and the turn ends.
+     *
+     */
     @Override
     public void dealersPlay() {
         if(dealer.getPlayersHandTotal() < 17){
@@ -311,7 +340,7 @@ public class GameLogicImpl implements GameLogic {
             System.out.println("\tDealer Hits \n");
             dealerDone = !dealer.addCardToPlayersHand(newDeck.dealingNextCard());
 
-            if(dealer.getPlayersHandTotal()>21){
+            if(dealer.getPlayersHandTotal() > 21){
 
                 dealer.printCardsInHand(true);
                 System.out.printf("Dealer's Score:%d\n\n", dealer.getPlayersHandTotal());
@@ -322,8 +351,7 @@ public class GameLogicImpl implements GameLogic {
                 System.out.println("\t\t\t\t*****************\n");
                 dealerDone = true;
             }
-        }
-        else{
+        } else {
 
             dealer.printCardsInHand(true);
             System.out.printf("Dealer's Score:%d\n\n", dealer.getPlayersHandTotal());
@@ -332,6 +360,11 @@ public class GameLogicImpl implements GameLogic {
         }
     }
 
+    /**
+     * Method for determines the winner
+     * Determined based on the totals of the player's and dealer's hands.
+     *
+     */
     @Override
     public void decideWinner() {
         int youSum = you.getPlayersHandTotal();
@@ -346,13 +379,12 @@ public class GameLogicImpl implements GameLogic {
             System.out.println("\t\t\t\t************\n");
             System.out.printf("Your Bet was :$%.0f\t", this.bet);
             System.out.printf("Your Balance was:$%.1f\n", this.balance);
-            System.out.printf("You win :$%.0f\t", this.bet);
+            System.out.printf("You win[1:1]:$%.0f\t", this.bet);
 
             this.balance = this.balance + this.bet + this.bet;
             System.out.printf("Your Current Balance:$%.1f\n", balance);
 
-        }
-        else if(youSum == dealerSum){
+        } else if(youSum == dealerSum){
 
             System.out.println("\t\t\t\t************");
             System.out.println("\t\t\t\t*          *");
@@ -361,15 +393,14 @@ public class GameLogicImpl implements GameLogic {
             System.out.println("\t\t\t\t************\n");
             this.balance = this.balance + this.bet;
             System.out.printf("Your Current Balance:$%.1f\n", this.balance);
-        }
-        else{
+        } else {
 
             System.out.println("\t\t\t\t************");
             System.out.println("\t\t\t\t*          *");
             System.out.println("\t\t\t\t* YOU LOST *");
             System.out.println("\t\t\t\t*          *");
             System.out.println("\t\t\t\t############\n");
-            System.out.printf("You lose: $%.0f!!\n", this.bet);
+            System.out.printf("You lose[1:1]: $%.0f!!\n", this.bet);
             System.out.printf("Your Current Balance:$%.1f\n", this.balance);
         }
     }

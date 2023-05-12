@@ -9,3 +9,13 @@ D
 blackjack-21-cli.iml,c/d/cd04d985d9241327375f2110bcdea7b55cdb4943
 C
 src/model/Deck.java,0/4/04995a8a82af510c9f705a3cc452a66c87a0eeee
+F
+src/test/CardTest.java,a/d/ad6fbc1a569b2074169d7333c6fa37b01f34d304
+D
+src/model/Cards.java,3/b/3b4558df4fa2795289b3bfdecd4790531bd430ff
+F
+src/test/DeckTest.java,3/3/337bc94a7bc7e29ea221bb8122cbd255e673677c
+I
+src/test/PlayersTest.java,0/4/043dcdf101c26e58714563bf6d8a5453a035f7ec
+F
+src/model/Players.java,2/5/25af93da8ed670b3e97b72816b8a17c5e5de8b53
