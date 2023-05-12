@@ -16,7 +16,7 @@ Use the git for clone the application, if you don't have and your machine, you s
 ```bash
 git clone https://github.com/SergioRuyDev/blackjack-21-cli.git
 ```
-**2. In your preferred IDE find the Main.class in blackjack-21-cli/Main
+**2. In your preferred IDE find the Main.class in blackjack-21-cli/Main.**
 ```bash
  Run as a Java application
 ```
