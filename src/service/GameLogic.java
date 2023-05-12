@@ -8,19 +8,19 @@ package src.service;
 
 public interface GameLogic {
 
-    public void dealTheGame();
+    void dealTheGame();
 
-    public boolean checkIfBlackJack();
+    boolean checkIfBlackJack();
 
-    public void yourPlay();
+    void yourPlay();
 
-    public void hit();
+    void hit();
 
-    public void stay();
+    void stay();
 
-    public void doubleDown();
+    void doubleDown();
 
-    public void dealersPlay();
+    void dealersPlay();
 
-    public void decideWinner();
+    void decideWinner();
 }

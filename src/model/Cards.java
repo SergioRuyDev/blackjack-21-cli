@@ -26,13 +26,6 @@ public class Cards {
 
         this.cardSuit = suitType;
 
-//        if (suitNumb >= 1 && suitNumb <= 13) {
-//            this.cardNumb = suitNumb;
-//        } else {
-//
-//            System.err.println(suitNumb + " is not a valid card number\n");
-//            System.exit(1);
-//        }
         if (suitNumb >= 1 && suitNumb <= 13) {
             this.cardNumb = suitNumb;
         } else {
@@ -45,24 +38,8 @@ public class Cards {
         return cardSuit;
     }
 
-    public void setCardSuit(Suits cardSuit) {
-        this.cardSuit = cardSuit;
-    }
-
     public int getCardNumb() {
         return cardNumb;
-    }
-
-    public void setCardNumb(int cardNumb) {
-        this.cardNumb = cardNumb;
-    }
-
-    public String[] getNumbString() {
-        return numbString;
-    }
-
-    public void setNumbString(String[] numbString) {
-        this.numbString = numbString;
     }
 
     @Override

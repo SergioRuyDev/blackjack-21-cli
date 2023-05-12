@@ -394,4 +394,92 @@ public class GameLogicImpl implements GameLogic {
             outputProvider.print(String.format("Your Current Balance:$%.1f\n", this.balance));
         }
     }
+
+    public Deck getNewDeck() {
+        return newDeck;
+    }
+
+    public void setNewDeck(Deck newDeck) {
+        this.newDeck = newDeck;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public float getBet() {
+        return bet;
+    }
+
+    public void setBet(float bet) {
+        this.bet = bet;
+    }
+
+    public boolean isYouDone() {
+        return youDone;
+    }
+
+    public void setYouDone(boolean youDone) {
+        this.youDone = youDone;
+    }
+
+    public boolean isDealerDone() {
+        return dealerDone;
+    }
+
+    public void setDealerDone(boolean dealerDone) {
+        this.dealerDone = dealerDone;
+    }
+
+    public Players getDealer() {
+        return dealer;
+    }
+
+    public void setDealer(Players dealer) {
+        this.dealer = dealer;
+    }
+
+    public Players getYou() {
+        return you;
+    }
+
+    public void setYou(Players you) {
+        this.you = you;
+    }
+
+    public InputProvider getInputProvider() {
+        return inputProvider;
+    }
+
+    public void setInputProvider(InputProvider inputProvider) {
+        this.inputProvider = inputProvider;
+    }
+
+    public OutputProvider getOutputProvider() {
+        return outputProvider;
+    }
+
+    public void setOutputProvider(OutputProvider outputProvider) {
+        this.outputProvider = outputProvider;
+    }
+
+    public boolean isDoubleDownAllowed() {
+        return doubleDownAllowed;
+    }
+
+    public void setDoubleDownAllowed(boolean doubleDownAllowed) {
+        this.doubleDownAllowed = doubleDownAllowed;
+    }
 }
