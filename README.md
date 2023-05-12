@@ -10,6 +10,16 @@ Game develop for playing only with command line.
 ============================================
 
 Requisite: Minimum Java 8+ installed.
+Use the git for clone the application, if you don't have and your machine, you should install first.
+
+**1. Clone the application.**
+```bash
+git clone https://github.com/SergioRuyDev/blackjack-21-cli.git
+```
+**2. In your preferred IDE find the Main.class in blackjack-21-cli/Main
+```bash
+ Run as a Java application
+```
 
 
 ## Functionalities
@@ -55,7 +65,7 @@ Requisite: Minimum Java 8+ installed.
 
 :bell: if one player busts, other automatically wins.
 
-:bell: if total of both players is equal, its a push (even if, initial hands of both totals to 21).
+:bell: if total of both players is equal, it's a push (even if, initial hands of both totals to 21).
 
 :bell: In case of Double Down chosen by The Player, draw only one card.
 
