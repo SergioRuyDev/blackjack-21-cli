@@ -1,19 +1,19 @@
-# Command line Blackjack Game inJava
-======================
+# Command line Blackjack Game in Java
+====================================
 
 ## Description of Project
-======================
+=========================
 
 Game develop for playing only with command line.
 
 # Requirements and steps for run the program
-======================
+============================================
 
 Requisite: Minimum Java 8+ installed.
 
 
 ## Functionalities
-===========
+==================
 
 :bell: Bet amount should not be greater than balance ( 100 or whatever (winning condition)).
 
