@@ -1,13 +1,10 @@
 # Command line Blackjack Game in Java
-====================================
 
 ## Description of Project
-=========================
 
 Game develop for playing only with command line.
 
 # Requirements and steps for run the program
-============================================
 
 Requisite: Minimum Java 8+ installed.
 Use the git for clone the application, if you don't have and your machine, you should install first.
@@ -21,9 +18,7 @@ git clone https://github.com/SergioRuyDev/blackjack-21-cli.git
  Run as a Java application
 ```
 
-
 ## Functionalities
-==================
 
 :bell: Bet amount should not be greater than balance ( 100 or whatever (winning condition)).
 
@@ -71,14 +66,12 @@ git clone https://github.com/SergioRuyDev/blackjack-21-cli.git
 
 
 # Inform notes:
-===============
 
 •	A four deck shoe is used.
 •	Each chip is $1.
 •	The player may double down on any initial two card hand.
 
 # Tech information:
-===================
 
 The game was written in java and the libs used for Unit tests was:
 * Java 17
