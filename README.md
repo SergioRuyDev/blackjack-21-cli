@@ -61,14 +61,14 @@ Requisite: Minimum Java 8+ installed.
 
 
 # Inform notes:
-=====
+===============
 
 •	A four deck shoe is used.
 •	Each chip is $1.
 •	The player may double down on any initial two card hand.
 
 # Tech information:
-======
+===================
 
 The game was written in java and the libs used for Unit tests was:
 * Java 17
